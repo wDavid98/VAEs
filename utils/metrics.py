@@ -1,6 +1,6 @@
 """This file contains different function to calculate metrics.
 Made by: Edgar RP (JefeLitman)
-Version: 1.0.0
+Version: 1.1.0
 """
 
 import numpy as np
@@ -123,7 +123,7 @@ def __chiSquare_test__(data_experimental, data_theorical, alpha=0.05):
         data_teorical (Array): An 1D array of data containing the expected values to be compared.
         alpha (Float): A decimal value meaning the significance level, default is 0.05 for 5%.
     """
-    terms = (data_experimental - data_theorical)**2 / data_theorical
+    terms = ((data_experimental - data_theorical)**2 + 1e-8) / (data_theorical + 1e-8)
     statistic = np.sum(terms)
     p_value = stats.chi2.sf(statistic, data_theorical.shape[0] - 1)
     if p_value < alpha:
