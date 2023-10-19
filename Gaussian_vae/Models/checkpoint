@@ -1,0 +1,2 @@
+model_checkpoint_path: "GVAE_4_decoder_dry_128_weights"
+all_model_checkpoint_paths: "GVAE_4_decoder_dry_128_weights"
